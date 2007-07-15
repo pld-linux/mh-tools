@@ -3,11 +3,12 @@ Summary(pl.UTF-8):	Biblioteka narzędziowa Mariosa Hadjieleftheriou
 Name:		mh-tools
 Version:	0.54b
 Release:	1
-License:	GPL
+License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://research.att.com/~marioh/tools/tools.054b.tar.bz2
 # Source0-md5:	c5844269eca9232f7833801e9d61f8cb
 URL:		http://research.att.com/~marioh/tools/index.html
+BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,6 +28,7 @@ Summary:	Header files for Marios Hadjieleftheriou's tools library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki narzędziowej Mariosa Hadjieleftheriou
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel
 
 %description devel
 Header files for Marios Hadjieleftheriou's tools library.
@@ -67,15 +69,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%doc AUTHORS README
+%attr(755,root,root) %{_libdir}/libtools.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libtools.so
+%{_libdir}/libtools.la
 %{_includedir}/tools
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libtools.a
